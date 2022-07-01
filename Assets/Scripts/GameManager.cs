@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    private GameObject objectCurrentlyHeld;
+
     public GameObject orbInRange;
     public GameObject container;
     public bool isCarryingOrb = false;
