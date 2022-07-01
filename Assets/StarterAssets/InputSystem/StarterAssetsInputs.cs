@@ -1,7 +1,7 @@
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+//#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
-#endif
+//#endif
 
 namespace StarterAssets
 {
@@ -20,7 +20,8 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
-#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+		//#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+		/*
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
@@ -33,6 +34,17 @@ namespace StarterAssets
 				LookInput(value.Get<Vector2>());
 			}
 		}
+		*/
+		public void OnMove(InputAction.CallbackContext context)
+        {
+			MoveInput(context.ReadValue<Vector2>());
+        }
+
+		public void OnLook(InputAction.CallbackContext context)
+		{
+			LookInput(context.ReadValue<Vector2>());
+		}
+
 
 		public void OnJump(InputValue value)
 		{
@@ -43,7 +55,8 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
-#endif
+
+//#endif
 
 
 		public void MoveInput(Vector2 newMoveDirection)

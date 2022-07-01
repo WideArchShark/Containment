@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
             orbInRange.transform.SetParent(container.transform);
             orbInRange.transform.localPosition = new Vector3(0f, 0.25f, 0f);
             orbInRange.transform.localRotation = Quaternion.identity;
+            isCarryingOrb = false;
         }
     }
 }
